@@ -28,7 +28,7 @@ A arquitetura foi estruturada seguindo boas práticas de organização de códig
 ![Interface da Aplicação](screenshots/carrinho_screen.png)
 
 ### Saída de Logs no Logcat
-![Saída Logcat](screenshots/logcat_output.png)
+![Saída Logcat](screenshots/logcat.png)
 
 ---
 
