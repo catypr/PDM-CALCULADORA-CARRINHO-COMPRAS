@@ -51,7 +51,6 @@ fun getDadosEntradaValidacao(): List<ItemCarrinho> {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CarrinhoScreen() {
-    // Chamada alinhada com a função getDadosEntradaValidacao()
     val itensCarrinho = remember { getDadosEntradaValidacao() }
 
     LaunchedEffect(Unit) {
@@ -77,7 +76,6 @@ fun CarrinhoScreen() {
         ) {
             LazyColumn(modifier = Modifier.weight(1f)) {
                 items(itensCarrinho) { item ->
-                    // Usando o componente Card correto
                     ItemCarrinhoCard(item = item)
                 }
             }
@@ -86,7 +84,7 @@ fun CarrinhoScreen() {
 
             Column(modifier = Modifier.fillMaxWidth()) {
                 LinhaResumo(
-                    rotulo = "Subtotal bruto:", // Adicionada a vírgula
+                    rotulo = "Subtotal bruto:",
                     valor = String.format(Locale("pt", "BR"), "R$ %.2f", subtotalBruto)
                 )
                 LinhaResumo(
@@ -97,7 +95,7 @@ fun CarrinhoScreen() {
                 LinhaResumo(
                     rotulo = "VALOR TOTAL FINAL:",
                     valor = String.format(Locale("pt", "BR"), "R$ %.2f", totalFinal),
-                    destaque = true // Corrigido True para true
+                    destaque = true
                 )
             }
         }
@@ -110,7 +108,7 @@ fun LinhaResumo(rotulo: String, valor: String, destaque: Boolean = false) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 2.dp),
-        horizontalArrangement = Arrangement.SpaceBetween // Alinha rótulo à esquerda e valor à direita
+        horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Text(
             text = rotulo,

@@ -1,10 +1,10 @@
 package com.example.atv1calculadora.domain
 
+import android.util.Log
 import com.example.atv1calculadora.model.ItemCarrinho
 
 object CarrinhoDomainService {
 
-    // Verifique se o nome exato aqui é "calcularSubtotalBruto"
     fun calcularSubtotalBruto(itens: List<ItemCarrinho>): Double {
         return itens.sumOf { it.produto.precoUnitario * it.quantidade }
     }
@@ -22,6 +22,16 @@ object CarrinhoDomainService {
     }
 
     fun gerarRelatorioLogcat(itens: List<ItemCarrinho>) {
-        // Lógica de log no Logcat
+        Log.d("RELATORIO_CARRINHO", "=== INICIANDO GERACAO DE RELATORIO ===")
+        Log.d("RELATORIO_CARRINHO", "Quantidade de itens no carrinho: ${itens.size}")
+
+        if (itens.isEmpty()) {
+            Log.w("RELATORIO_CARRINHO", "A lista de itens está VAZIA!")
+            return
+        }
+
+        itens.forEach { item ->
+            Log.d("RELATORIO_CARRINHO", "Item: ${item.produto.nome} | Total: R$ ${item.calcularTotal()}")
+        }
     }
 }

@@ -35,7 +35,6 @@ fun ItemCarrinhoCard(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Coluna com as informações do produto à esquerda
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = produto.nome,
@@ -58,7 +57,6 @@ fun ItemCarrinhoCard(
 
             Spacer(modifier = Modifier.width(8.dp))
 
-            // Valor total do item alinhado à direita
             Text(
                 text = totalItemFmt,
                 style = MaterialTheme.typography.titleSmall
