@@ -25,10 +25,10 @@ A arquitetura foi estruturada seguindo boas práticas de organização de códig
 ## Capturas de Tela
 
 ### Tela do Carrinho de Compras (UI)
-![Interface da Aplicação](screenshots/carrinho_screen.png)
+![Interface da Aplicação](carrinho_screen.png)
 
 ### Saída de Logs no Logcat
-![Saída Logcat](screenshots/logcat.png)
+![Saída Logcat](logcat.png)
 
 ---
 
