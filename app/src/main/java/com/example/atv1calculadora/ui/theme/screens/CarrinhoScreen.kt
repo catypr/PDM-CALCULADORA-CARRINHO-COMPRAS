@@ -13,38 +13,80 @@ import com.example.atv1calculadora.model.ItemCarrinho
 import com.example.atv1calculadora.model.Produto
 import com.example.atv1calculadora.ui.theme.components.ItemCarrinhoCard
 import java.util.Locale
+import androidx.compose.ui.tooling.preview.Preview
+
+fun getCatalogoProdutos(): List<Produto> {
+    return listOf(
+        Produto(
+            id = "1",
+            nome = "Notebook Dell Inspiron 15 3000 Intel Core i5",
+            precoUnitario = 3499.00,
+            descricao = "Um Notebook rápido para suas tarefas diárias com alta eficiência.",
+            descontoPercentual = 5.0
+        ),
+
+        Produto(
+            id = "2",
+            nome = "Mouse sem fio",
+            precoUnitario = 89.90,
+            descricao = null,
+            descontoPercentual = 0.0
+        ),
+
+        Produto(
+            id = "3",
+            nome = "Teclado mecânico RGB com switch azul, ABNT2",
+            precoUnitario = 349.90,
+            descricao = "Teclado mecânico com iluminação RGB.",
+            descontoPercentual = 0.0
+        ),
+
+        Produto(
+            id = "4",
+            nome = "Monitor Gamer 27",
+            precoUnitario = 1200.00,
+            descricao = "144Hz 1ms",
+            descontoPercentual = 10.0
+        ),
+
+        Produto(
+            id = "5",
+            nome = "Headset Surround 7.1",
+            precoUnitario = 250.00,
+            descricao = "Sem fio",
+            descontoPercentual = 0.0
+        ),
+
+        Produto(
+            id = "6",
+            nome = "Pad de Mouse Extra Grande",
+            precoUnitario = 50.00,
+            descricao = "90x40cm",
+            descontoPercentual = 0.0
+        )
+    )
+}
+
 
 fun getDadosEntradaValidacao(): List<ItemCarrinho> {
-    val p1 = Produto(
-        id = "1",
-        nome = "Notebook Dell Inspiron 15 3000 Intel Core i5",
-        precoUnitario = 3499.00,
-        descricao = "Um Notebook rápido para suas tarefas diárias com alta eficiência.",
-        descontoPercentual = 5.0
-    )
 
-    val p2 = Produto(
-        id = "2",
-        nome = "Mouse sem fio",
-        precoUnitario = 89.90,
-        descricao = null,
-        descontoPercentual = 0.0
-    )
-    val p3 = Produto(
-        id = "3",
-        nome = "Teclado mecânico RGB com switch azul, ABNT2",
-        precoUnitario = 349.90,
-        descontoPercentual = 0.0
-    )
-
-    val p4 = Produto("4", "Monitor Gamer 27", 1200.00, "144Hz 1ms", 10.0)
-    val p5 = Produto("5", "Headset Surround 7.1", 250.00, "Sem fio", 0.0)
-    val p6 = Produto("6", "Pad de Mouse Extra Grande", 50.00, "90x40cm", 0.0)
+    val catalogo = getCatalogoProdutos()
 
     return listOf(
-        ItemCarrinho(produto = p1, quantidade = 2),
-        ItemCarrinho(produto = p2, quantidade = 1),
-        ItemCarrinho(produto = p3, quantidade = 1)
+        ItemCarrinho(
+            produto = catalogo[0],
+            quantidade = 2
+        ),
+
+        ItemCarrinho(
+            produto = catalogo[1],
+            quantidade = 1
+        ),
+
+        ItemCarrinho(
+            produto = catalogo[2],
+            quantidade = 1
+        )
     )
 }
 
@@ -122,4 +164,10 @@ fun LinhaResumo(rotulo: String, valor: String, destaque: Boolean = false) {
             color = if (destaque) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurface
         )
     }
+}
+
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun CarrinhoScreenPreview() {
+    CarrinhoScreen()
 }

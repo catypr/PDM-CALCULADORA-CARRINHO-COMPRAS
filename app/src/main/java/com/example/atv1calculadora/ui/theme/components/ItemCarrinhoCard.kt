@@ -11,6 +11,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.example.atv1calculadora.model.ItemCarrinho
 import java.util.Locale
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.atv1calculadora.model.Produto
 
 @Composable
 fun ItemCarrinhoCard(
@@ -63,4 +65,23 @@ fun ItemCarrinhoCard(
             )
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ItemCarrinhoCardPreview() {
+    val produto = Produto(
+        id = "1",
+        nome = "Notebook Dell Inspiron 15 3000 Intel Core i5",
+        precoUnitario = 3499.00,
+        descricao = "Notebook para tarefas diárias.",
+        descontoPercentual = 5.0
+    )
+
+    val item = ItemCarrinho(
+        produto = produto,
+        quantidade = 2
+    )
+
+    ItemCarrinhoCard(item = item)
 }
